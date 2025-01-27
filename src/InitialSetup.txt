@@ -1,0 +1,7 @@
+!This setup has:-
+-React Router Dom
+--Tailwind CSS
+---DaisyUI
+----React Icons
+-----Google Font(Poppins)
+------Marquee
