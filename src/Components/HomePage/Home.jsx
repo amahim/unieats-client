@@ -6,7 +6,7 @@ import Footer from '../Shared/Footer';
 
 const Home = () => {
     return (
-        <div className='bg-[#FFD372]'>
+        <div className='bg-[#FFD372] pt-36'>
             <Navbar/>
                 <Outlet/>
             <Footer/>
