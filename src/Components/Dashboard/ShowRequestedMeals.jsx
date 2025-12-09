@@ -36,18 +36,22 @@ const ShowRequestedMeals = ({ meal, refetch }) => {
       <td className="px-4 py-4 text-white font-medium">{title}</td>
       {/* Likes */}
       <td className="px-4 py-4 text-center">
-        <span className="px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 font-medium">{likes}</span>
+        <span className="px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 font-medium">
+          {likes}
+        </span>
       </td>
       {/* Reviews */}
       <td className="px-4 py-4 text-center">
-        <span className="px-3 py-1 rounded-full bg-green-500/20 text-green-300 font-medium">{reviews_count}</span>
+        <span className="px-3 py-1 rounded-full bg-green-500/20 text-green-300 font-medium">
+          {reviews_count}
+        </span>
       </td>
       {/* Request Status */}
       <td className="px-4 py-4 text-center">
         <span
           className={`px-4 py-2 rounded-full font-semibold ${
-            reqStatus === "Requested" 
-              ? "bg-yellow-500/20 text-yellow-300" 
+            reqStatus === "Requested"
+              ? "bg-yellow-500/20 text-yellow-300"
               : "bg-green-500/20 text-green-300"
           }`}
         >

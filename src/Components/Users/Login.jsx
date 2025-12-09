@@ -31,7 +31,7 @@ const Login = () => {
           email: user.email,
           photo: user.photoURL,
           membership: "Bronze",
-          role: "User"
+          role: "User",
         };
         axiosPublic.post("/users", userInfo).then((res) => {
           if (res.data.insertedId) {
@@ -106,21 +106,31 @@ const Login = () => {
             })}
           />
           {errors.password && (
-            <p className="text-red-400 text-sm mt-1">{errors.password.message}</p>
+            <p className="text-red-400 text-sm mt-1">
+              {errors.password.message}
+            </p>
           )}
           <label className="label">
-            <p className="label-text-alt link link-hover text-white/70 hover:text-white">Forgot password?</p>
+            <p className="label-text-alt link link-hover text-white/70 hover:text-white">
+              Forgot password?
+            </p>
           </label>
         </div>
         <div className="form-control mt-6">
-          <button type="submit" className="btn btn-gradient-primary rounded-full text-white font-semibold shadow-medium hover:shadow-glow-purple transition-all duration-300">
+          <button
+            type="submit"
+            className="btn btn-gradient-primary rounded-full text-white font-semibold shadow-medium hover:shadow-glow-purple transition-all duration-300"
+          >
             Login
           </button>
         </div>
         <div className="text-center mt-4">
           <p className="text-white/80">
             Don't have an account?{" "}
-            <Link to="/register" className="text-white font-semibold hover:underline">
+            <Link
+              to="/register"
+              className="text-white font-semibold hover:underline"
+            >
               Register
             </Link>
           </p>

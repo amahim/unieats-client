@@ -19,7 +19,9 @@ const Pricing = () => {
                 <div className="space-y-3">
                   <h4 className="text-2xl font-bold text-white">Silver</h4>
                   <div className="flex items-baseline gap-2">
-                    <span className="text-5xl md:text-6xl font-bold text-white">$10</span>
+                    <span className="text-5xl md:text-6xl font-bold text-white">
+                      $10
+                    </span>
                     <span className="text-white/60">/month</span>
                   </div>
                 </div>
@@ -52,13 +54,17 @@ const Pricing = () => {
             </div>
             <div className="flex w-full md:w-80 lg:w-96 hover-lift relative">
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                <span className="bg-gradient-secondary px-6 py-2 rounded-full text-white text-sm font-semibold shadow-strong">Most Popular</span>
+                <span className="bg-gradient-secondary px-6 py-2 rounded-full text-white text-sm font-semibold shadow-strong">
+                  Most Popular
+                </span>
               </div>
               <div className="glass-effect flex flex-grow flex-col p-8 space-y-6 rounded-3xl border-2 border-white/40 shadow-glow-purple">
                 <div className="space-y-3">
                   <h4 className="text-2xl font-bold text-white">Gold</h4>
                   <div className="flex items-baseline gap-2">
-                    <span className="text-5xl md:text-6xl font-bold text-white">$15</span>
+                    <span className="text-5xl md:text-6xl font-bold text-white">
+                      $15
+                    </span>
                     <span className="text-white/60">/month</span>
                   </div>
                 </div>
@@ -109,7 +115,9 @@ const Pricing = () => {
                 <div className="space-y-3">
                   <h4 className="text-2xl font-bold text-white">Platinum</h4>
                   <div className="flex items-baseline gap-2">
-                    <span className="text-5xl md:text-6xl font-bold text-white">$20</span>
+                    <span className="text-5xl md:text-6xl font-bold text-white">
+                      $20
+                    </span>
                     <span className="text-white/60">/month</span>
                   </div>
                 </div>

@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import { AuthContext } from "../Provider/AuthProvider";
 import useAxiosPublic from "../Hooks/UseAxiosPublic";
 const img_hosting_key = import.meta.env.VITE_image_api_key;
-const img_hosting_api = `https://api.imgbb.com/1/upload?key=${img_hosting_key}`
+const img_hosting_api = `https://api.imgbb.com/1/upload?key=${img_hosting_key}`;
 
 const Register = () => {
   const { createNewUser, setUser, updateUserProfile } = useContext(AuthContext);
@@ -21,7 +21,7 @@ const Register = () => {
 
   const onSubmit = async (data) => {
     // console.log(data);
-  
+
     // Image upload to imgbb and get the URL
     const imageFile = { image: data.image[0] };
     const res = await axiosPublic.post(img_hosting_api, imageFile, {
@@ -29,11 +29,11 @@ const Register = () => {
         "content-type": "multipart/form-data",
       },
     });
-  
+
     if (res.data.success) {
       const photo = res.data.data.display_url; // Extract the photo URL
       const { name, email, password } = data;
-  
+
       // Password validation
       const regex = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
       if (!regex.test(password)) {
@@ -42,14 +42,14 @@ const Register = () => {
         );
         return;
       }
-  
+
       // Create user
       createNewUser(email, password)
         .then((result) => {
           const user = result.user;
-  
+
           setUser(user);
-  
+
           updateUserProfile({
             displayName: name,
             photoURL: photo,
@@ -60,7 +60,7 @@ const Register = () => {
                 displayName: name,
                 photoURL: photo,
               });
-  
+
               // Save user info to the database
               const userInfo = {
                 name,
@@ -69,13 +69,13 @@ const Register = () => {
                 membership: "Bronze",
                 role: "User",
               };
-  
+
               axiosPublic.post("/users", userInfo).then((res) => {
                 if (res.data.insertedId) {
                   toast.success("Registration Successful!");
                 }
               });
-  
+
               navigate(location?.state?.from || "/");
             })
             .catch((err) => console.error(err));
@@ -87,7 +87,6 @@ const Register = () => {
       toast.error("Failed to upload image.");
     }
   };
-  
 
   return (
     <div className="w-full max-w-md mx-auto px-4 py-8">
@@ -119,11 +118,16 @@ const Register = () => {
 
         {/* Photo URL Field */}
         <div className="form-control">
-       <label className="label">
-       <span className="label-text text-white font-medium">Profile Picture</span>
-       </label>
-          <input {...register('image', { required: true })} type="file" className="file-input glass-effect border border-white/30 text-white rounded-2xl" />
-                  
+          <label className="label">
+            <span className="label-text text-white font-medium">
+              Profile Picture
+            </span>
+          </label>
+          <input
+            {...register("image", { required: true })}
+            type="file"
+            className="file-input glass-effect border border-white/30 text-white rounded-2xl"
+          />
         </div>
 
         {/* Email Field */}
@@ -154,20 +158,27 @@ const Register = () => {
             {...register("password", { required: "Password is required" })}
           />
           {errors.password && (
-            <p className="text-red-400 text-sm mt-1">{errors.password.message}</p>
+            <p className="text-red-400 text-sm mt-1">
+              {errors.password.message}
+            </p>
           )}
         </div>
 
         {/* Submit Button */}
         <div className="form-control mt-6">
-          <button className="btn btn-gradient-primary rounded-full text-white font-semibold shadow-medium hover:shadow-glow-purple transition-all duration-300">Register</button>
+          <button className="btn btn-gradient-primary rounded-full text-white font-semibold shadow-medium hover:shadow-glow-purple transition-all duration-300">
+            Register
+          </button>
         </div>
 
         {/* Already have an account */}
         <div className="text-center mt-4">
           <p className="text-white/80">
             Already have an account?{" "}
-            <Link to="/login" className="text-white font-semibold hover:underline">
+            <Link
+              to="/login"
+              className="text-white font-semibold hover:underline"
+            >
               Login
             </Link>
           </p>
