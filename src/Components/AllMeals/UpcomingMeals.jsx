@@ -17,11 +17,11 @@ const UpcomingMeals = () => {
 
   const upcomingMeals = meals.filter((m) => m.schedule === "Upcoming");
   return (
-    <div className="w-4/5 mx-auto ">
+    <div className="w-full max-w-7xl mx-auto px-4 md:px-8 py-12">
       <div>
         <SectionTitle heading="Upcoming Meals" subHeading="Coming Soon" />
       </div>
-      <div className="py-5 grid lg:grid-cols-3 grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="py-8 grid lg:grid-cols-3 grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
         {upcomingMeals.map((meal) => (
           <ShowMeals meal={meal} key={meal._id} refetch={refetch} />
         ))}

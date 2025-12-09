@@ -3,7 +3,7 @@ import Sidebar from "./Sidebar";
 
 const Dashboard = () => {
     return (
-        <div className='bg-[#FFD372] flex flex-col md:flex-row '>
+        <div className='min-h-screen flex flex-col md:flex-row'>
             
             <div className=""> 
            <Sidebar />

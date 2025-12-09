@@ -138,36 +138,40 @@ const MealsDetails = () => {
   };
 
   return (
-    <div className="w-4/5 mx-auto py-6">
-      <div>
+    <div className="w-full max-w-7xl mx-auto px-4 md:px-8 py-8">
+      <div className="mb-6">
         <button
           onClick={() => navigate("/meals")}
-          className="flex items-center gap-2 text-[#f15b42] text-lg md:text-xl px-4 py-2 rounded-md"
+          className="flex items-center gap-2 text-white hover:text-white/80 text-lg md:text-xl px-6 py-3 rounded-full glass-effect border border-white/30 hover:border-white/50 transition-all duration-300"
         >
           <FaArrowCircleLeft />
+          <span className="text-sm md:text-base">Back to Meals</span>
         </button>
       </div>
 
-      <div className="flex md:flex-row flex-col gap-4 items-start md:items-center mt-5">
-        <div className="flex flex-col gap-2 md:w-1/2 w-full">
-          <img src={image} className="rounded-lg" alt={title} />
+      <div className="flex md:flex-row flex-col gap-6 md:gap-8 items-start mt-8">
+        <div className="flex flex-col gap-4 md:w-1/2 w-full">
+          <div className="relative overflow-hidden rounded-3xl border border-white/20 shadow-strong group">
+            <img src={image} className="w-full h-auto object-cover" alt={title} />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
           {schedule === "Upcoming" ? (
             <button
               disabled
-              className="btn bg-[#f15b42] border-none rounded-lg text-white"
+              className="btn rounded-full text-white opacity-60 cursor-not-allowed bg-white/20 border border-white/30"
             >
               Coming Soon
             </button>
           ) : isAdmin ? (
             <button
               disabled
-              className="btn bg-[#f15b42] border-none rounded-lg text-white"
+              className="btn rounded-full text-white opacity-60 cursor-not-allowed bg-white/20 border border-white/30"
             >
               Admin Can't Request
             </button>
           ) : (
             <button
-              className="btn bg-[#f15b42] border-none rounded-lg text-white"
+              className="btn btn-gradient-primary rounded-full text-white font-semibold shadow-medium hover:shadow-glow-purple transition-all duration-300"
               onClick={() =>
                 user && user.email
                   ? loggedInUserDetails.membership !== "Bronze"
@@ -181,46 +185,48 @@ const MealsDetails = () => {
           )}
         </div>
         {/* Meal Data */}
-        <div className="w-full md:w-1/2 p-4 rounded-lg border-2 border-[#f15b42] flex flex-col gap-2">
-          <p>
-            Title: <span className="font-bold">{title}</span>
-          </p>
-          <p>
-            Category: <span className="font-bold">{category}</span>
-          </p>
-          <p>
-            Available: <span className="font-bold">{schedule}</span>
-          </p>
-          <p>
-            Price: <span className="font-bold">{price}</span>
-          </p>
-          <p>
-            Post Time:{" "}
-            <span className="font-bold">
-              {new Date(post_time).toISOString().split("T")[0]}
-            </span>
-          </p>
-          <p>
-            Ingredients: <span className="font-bold">{ingredients}</span>
-          </p>
-          <p>
-            Description: <span className="font-bold">{description}</span>
-          </p>
-          <p>
-            Distributor's Name:{" "}
-            <span className="font-bold">{distributor_name}</span>
-          </p>
-          <p>
-            Distributor's Email:{" "}
-            <span className="font-bold">{distributor_email}</span>
-          </p>
-          <div className="flex gap-2">
-            <p className="flex items-center gap-1 border-2 bg-white border-black rounded-xl p-2">
-              <FaStar />
-              <span>{rating}</span>
-            </p>
+        <div className="w-full md:w-1/2 glass-effect p-5 md:p-6 rounded-3xl border border-white/20 flex flex-col gap-3 shadow-strong">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">{title}</h2>
+          <div className="space-y-2 text-white/90 text-sm md:text-base">
+            <div className="flex items-center gap-2">
+              <span className="text-white/60">Category:</span>
+              <span className="font-semibold bg-gradient-tertiary text-transparent bg-clip-text">{category}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-white/60">Status:</span>
+              <span className="font-semibold">{schedule}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-white/60">Price:</span>
+              <span className="font-bold text-xl md:text-2xl bg-gradient-secondary text-transparent bg-clip-text">${price}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-white/60">Posted:</span>
+              <span className="font-medium">
+                {new Date(post_time).toISOString().split("T")[0]}
+              </span>
+            </div>
+            <div className="pt-2 border-t border-white/20">
+              <p className="text-white/60 mb-1">Ingredients:</p>
+              <p className="font-medium">{ingredients}</p>
+            </div>
+            <div className="pt-2 border-t border-white/20">
+              <p className="text-white/60 mb-1">Description:</p>
+              <p className="font-medium leading-relaxed">{description}</p>
+            </div>
+            <div className="pt-2 border-t border-white/20">
+              <p className="text-white/60 mb-1">Distributor:</p>
+              <p className="font-semibold">{distributor_name}</p>
+              <p className="text-sm text-white/70">{distributor_email}</p>
+            </div>
+          </div>
+          <div className="flex gap-3 pt-4 border-t border-white/20">
+            <div className="flex items-center gap-2 glass-effect px-4 py-2 rounded-full border border-white/30">
+              <FaStar className="text-yellow-400" />
+              <span className="font-semibold text-white">{rating}</span>
+            </div>
             <button
-              className="flex items-center gap-1 border-2 bg-white border-black rounded-xl p-2"
+              className="flex items-center gap-2 glass-effect px-4 py-2 rounded-full border border-white/30 hover:bg-white/20 transition-all duration-300"
               onClick={() =>
                 user && user.email
                   ? isAdmin
@@ -233,24 +239,24 @@ const MealsDetails = () => {
                   : navigate("/login")
               }
             >
-              <FaThumbsUp />
-              <span>{likes}</span>
+              <FaThumbsUp className="text-blue-400" />
+              <span className="font-semibold text-white">{likes}</span>
             </button>
-            <p className="flex items-center gap-1 border-2 bg-white border-black rounded-xl p-2">
-              <FaComment />
-              <span>{reviews_count}</span>
-            </p>
+            <div className="flex items-center gap-2 glass-effect px-4 py-2 rounded-full border border-white/30">
+              <FaComment className="text-green-400" />
+              <span className="font-semibold text-white">{reviews_count}</span>
+            </div>
           </div>
-          <div>
+          <div className="pt-4 border-t border-white/20 space-y-3">
             <textarea
               placeholder="Write a review..."
               name="review"
               id="review"
-              className="h-16 p-2 rounded-xl w-full"
+              className="w-full h-24 p-4 rounded-2xl glass-effect border border-white/30 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 resize-none"
               ref={reviewRef} // Attach ref to the textarea
             ></textarea>
             <button
-              className="btn"
+              className="btn btn-gradient-secondary rounded-full w-full text-white font-semibold shadow-medium hover:shadow-glow-pink transition-all duration-300"
               onClick={() => {
                 if (!user || !user.email) {
                   // If the user is not logged in, navigate to login

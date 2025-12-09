@@ -30,16 +30,16 @@ const Meals = () => {
   const AvailableMeals = meals.filter((m) => m.schedule === "Available");
 
   return (
-    <div className="w-4/5 mx-auto">
+    <div className="w-full max-w-7xl mx-auto px-4 md:px-8 py-12">
       <div>
         <SectionTitle heading="All Meals" subHeading="Available Meals" />
       </div>
-      <div className="flex flex-col md:flex-row items-center gap-2 py-5">
-        <div className="md:w-[40%] lg:w-[70%] w-full">
-          <label className="input input-bordered flex items-center gap-2">
+      <div className="flex flex-col md:flex-row items-center gap-4 py-6">
+        <div className="md:w-[60%] lg:w-[70%] w-full">
+          <label className="glass-effect flex items-center gap-3 px-5 py-3 rounded-full border border-white/30">
             <input
               type="text"
-              className="grow"
+              className="grow bg-transparent text-white placeholder-white/60 focus:outline-none"
               placeholder="Search by meal title"
               value={searchQuery}
               onChange={handleSearchChange}
@@ -48,7 +48,7 @@ const Meals = () => {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 16 16"
               fill="currentColor"
-              className="h-4 w-4 opacity-70"
+              className="h-5 w-5 text-white/70"
             >
               <path
                 fillRule="evenodd"
@@ -59,22 +59,22 @@ const Meals = () => {
           </label>
         </div>
         {/* Filter buttons */}
-        <div className="flex justify-center items-center gap-2 md:w-[60%] lg:w-[30%] w-full">
+        <div className="flex justify-center items-center gap-3 md:w-[40%] lg:w-[30%] w-full">
           <button
-            className="btn"
+            className="btn btn-gradient-tertiary rounded-full px-6 text-white font-medium shadow-medium hover:shadow-glow-blue transition-all duration-300 text-sm md:text-base"
             onClick={() => handleSort("price")} // Sort by price
           >
-            Price: Low to High
+            Price
           </button>
           <button
-            className="btn"
+            className="btn btn-gradient-secondary rounded-full px-6 text-white font-medium shadow-medium hover:shadow-glow-pink transition-all duration-300 text-sm md:text-base"
             onClick={() => handleSort("category")} // Sort by category
           >
-            Category: B-D-L
+            Category
           </button>
         </div>
       </div>
-      <div className="grid lg:grid-cols-3 grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid lg:grid-cols-3 grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
         {AvailableMeals.map((meal) => (
           <ShowMeals meal={meal} key={meal._id} refetch={refetch} />
         ))}

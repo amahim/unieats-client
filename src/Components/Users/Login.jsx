@@ -64,38 +64,39 @@ const Login = () => {
   };
 
   return (
-    <div className="md:w-2/5 mx-auto w-4/5">
-      <div>
-        <h1 className="text-center font-bold text-2xl text-[#262522]">
-          Login to your account
+    <div className="w-full max-w-md mx-auto px-4 py-8">
+      <div className="text-center mb-6">
+        <h1 className="text-2xl md:text-3xl font-bold text-white mb-2">
+          Welcome Back
         </h1>
+        <p className="text-white/80 text-sm">Login to your account</p>
       </div>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="border-[#ee6352] card-body border-2 mt-10 rounded-xl shadow-xl"
+        className="glass-effect card-body p-8 rounded-3xl border border-white/20 shadow-strong"
       >
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Email</span>
+            <span className="label-text text-white font-medium">Email</span>
           </label>
           <input
             type="email"
-            placeholder="email"
-            className="input input-bordered"
+            placeholder="Enter your email"
+            className="input glass-effect border border-white/30 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 rounded-2xl"
             {...register("email", { required: "Email is required" })}
           />
           {errors.email && (
-            <p className="text-red-600 text-sm">{errors.email.message}</p>
+            <p className="text-red-400 text-sm mt-1">{errors.email.message}</p>
           )}
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Password</span>
+            <span className="label-text text-white font-medium">Password</span>
           </label>
           <input
             type="password"
-            placeholder="password"
-            className="input input-bordered"
+            placeholder="Enter your password"
+            className="input glass-effect border border-white/30 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 rounded-2xl"
             {...register("password", {
               required: "Password is required",
               minLength: {
@@ -105,33 +106,33 @@ const Login = () => {
             })}
           />
           {errors.password && (
-            <p className="text-red-600 text-sm">{errors.password.message}</p>
+            <p className="text-red-400 text-sm mt-1">{errors.password.message}</p>
           )}
           <label className="label">
-            <p className="label-text-alt link link-hover">Forgot password?</p>
+            <p className="label-text-alt link link-hover text-white/70 hover:text-white">Forgot password?</p>
           </label>
         </div>
         <div className="form-control mt-6">
-          <button type="submit" className="btn bg-[#ee6352] text-white">
+          <button type="submit" className="btn btn-gradient-primary rounded-full text-white font-semibold shadow-medium hover:shadow-glow-purple transition-all duration-300">
             Login
           </button>
         </div>
-        <div>
-          <h1>
+        <div className="text-center mt-4">
+          <p className="text-white/80">
             Don't have an account?{" "}
-            <Link to="/register" className="text-[#ee6352]">
+            <Link to="/register" className="text-white font-semibold hover:underline">
               Register
             </Link>
-          </h1>
+          </p>
         </div>
         <div className="flex w-full flex-col">
-          <div className="divider">Or</div>
+          <div className="divider text-white/60">Or</div>
         </div>
         <div>
           <button
             type="button"
             onClick={handleGoogleSignIn}
-            className="w-full btn border-[#ee6352] btn-outline"
+            className="w-full btn glass-effect border border-white/30 text-white hover:bg-white/20 rounded-full font-medium transition-all duration-300 flex items-center justify-center gap-2"
           >
             Login With Google <FaGoogle />
           </button>
