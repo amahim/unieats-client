@@ -37,58 +37,56 @@ const MyProfile = () => {
   return (
     <div className="p-4 md:p-6">
       <SectionTitle heading="My Profile"></SectionTitle>
-      <div className="mt-6">
+      <div className="mt-6 max-w-3xl">
         {currentUser ? (
-          <div className="glass-effect rounded-3xl border border-white/20 shadow-strong overflow-hidden">
-            <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-center md:items-start p-4 md:p-6">
-              <div className="md:w-2/5 w-full flex justify-center">
+          <div className="bg-slate-900/95 rounded-2xl border border-slate-800 shadow-xl overflow-hidden">
+            <div className="flex flex-col sm:flex-row gap-6 items-center sm:items-start p-6 md:p-8">
+              <div className="sm:w-1/3 flex justify-center">
                 <div className="relative">
                   <img
                     src={currentUser.photo}
                     alt="My profile pic"
-                    className="w-40 h-40 md:w-48 md:h-48 rounded-3xl object-cover border-4 border-white/30 shadow-strong"
+                    className="w-32 h-32 md:w-40 md:h-40 rounded-2xl object-cover border-2 border-slate-700 shadow-xl"
                   />
-                  <div className="absolute -bottom-2 -right-2 w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center shadow-glow-purple">
-                    <span className="text-xl">👤</span>
+                  <div className="absolute -bottom-2 -right-2 w-9 h-9 bg-orange-500 text-white rounded-full flex items-center justify-center shadow-lg text-sm">
+                    👤
                   </div>
                 </div>
               </div>
-              <div className="md:w-3/5 w-full space-y-4 md:text-start text-center">
-                <h2 className="text-xl md:text-2xl font-bold text-white">
-                  {currentUser.name}
-                </h2>
-                <div className="space-y-3 text-white/90 text-sm md:text-base">
-                  <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-2">
-                    <span className="text-white/60 font-medium text-xs md:text-sm">
-                      Email:
-                    </span>
-                    <span className="font-medium break-all">
-                      {currentUser.email}
-                    </span>
-                  </div>
+              <div className="sm:w-2/3 space-y-4 sm:text-start text-center">
+                <div>
+                  <h2 className="text-2xl font-extrabold text-white tracking-tight">
+                    {currentUser.name}
+                  </h2>
+                  <p className="text-slate-400 text-sm mt-0.5 break-all">
+                    {currentUser.email}
+                  </p>
+                </div>
+
+                <div className="space-y-3 pt-3 border-t border-slate-800/80 text-sm">
                   {currentUser.role === "Admin" ? (
-                    <div className="flex flex-col md:flex-row md:items-center gap-2">
-                      <span className="text-white/60 font-medium">Role:</span>
-                      <span className="px-4 py-2 rounded-full bg-gradient-secondary text-white font-semibold shadow-medium">
-                        {currentUser.role}
+                    <div className="flex items-center sm:justify-start justify-center gap-2">
+                      <span className="text-slate-400 text-xs font-semibold uppercase tracking-wider">Role:</span>
+                      <span className="px-3.5 py-1 rounded-full bg-orange-500/15 border border-orange-500/30 text-orange-400 font-bold text-xs">
+                        Administrator
                       </span>
                     </div>
                   ) : (
-                    <div className="flex flex-col md:flex-row md:items-center gap-2">
-                      <span className="text-white/60 font-medium text-xs md:text-sm">
-                        Badge:
+                    <div className="flex items-center sm:justify-start justify-center gap-2">
+                      <span className="text-slate-400 text-xs font-semibold uppercase tracking-wider">
+                        Badge Tier:
                       </span>
                       <span
-                        className={`px-4 py-1.5 text-sm rounded-full text-white font-semibold shadow-medium ${
+                        className={`px-3.5 py-1 text-xs rounded-full font-bold uppercase tracking-wider ${
                           currentUser.membership === "Bronze"
-                            ? "bg-gradient-to-r from-yellow-700 to-yellow-600"
+                            ? "bg-amber-900/40 text-amber-300 border border-amber-700/50"
                             : currentUser.membership === "Silver"
-                            ? "bg-gradient-to-r from-gray-400 to-gray-500"
+                            ? "bg-slate-800 text-slate-200 border border-slate-600"
                             : currentUser.membership === "Gold"
-                            ? "bg-gradient-to-r from-yellow-400 to-yellow-600"
+                            ? "bg-amber-500/20 text-amber-300 border border-amber-500/40"
                             : currentUser.membership === "Platinum"
-                            ? "bg-gradient-to-r from-blue-400 to-purple-600"
-                            : "bg-gray-200 text-gray-800"
+                            ? "bg-purple-500/20 text-purple-300 border border-purple-500/40"
+                            : "bg-slate-800 text-slate-300"
                         }`}
                       >
                         {currentUser.membership}
@@ -96,11 +94,11 @@ const MyProfile = () => {
                     </div>
                   )}
                   {currentUser.role === "Admin" && (
-                    <div className="flex flex-col md:flex-row md:items-center gap-2">
-                      <span className="text-white/60 font-medium">
+                    <div className="flex items-center sm:justify-start justify-center gap-2 pt-1">
+                      <span className="text-slate-400 text-xs font-semibold uppercase tracking-wider">
                         Meals Added:
                       </span>
-                      <span className="text-2xl font-bold bg-gradient-tertiary text-transparent bg-clip-text">
+                      <span className="text-xl font-extrabold text-orange-400">
                         {mealsAddedByThisAdmin.length}
                       </span>
                     </div>
@@ -110,8 +108,8 @@ const MyProfile = () => {
             </div>
           </div>
         ) : (
-          <div className="glass-effect rounded-3xl border border-white/20 p-8 text-center">
-            <p className="text-red-400 text-lg">No user information found!</p>
+          <div className="bg-slate-900/90 rounded-2xl border border-slate-800 p-8 text-center">
+            <p className="text-rose-400 text-base">No user profile information found.</p>
           </div>
         )}
       </div>

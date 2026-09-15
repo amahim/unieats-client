@@ -24,8 +24,8 @@ const Navbar = () => {
         to="/"
         className={({ isActive }) =>
           isActive
-            ? "px-4 py-2 text-sm rounded-full bg-white text-transparent bg-clip-text bg-gradient-primary font-semibold shadow-soft transition-all duration-300"
-            : "px-4 py-2 text-sm rounded-full text-white hover:bg-white/20 transition-all duration-300 backdrop-blur-sm"
+            ? "px-4 py-2 text-sm rounded-full bg-orange-500/15 text-orange-400 font-semibold border border-orange-500/30 transition-all duration-200"
+            : "px-4 py-2 text-sm rounded-full text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all duration-200"
         }
       >
         Home
@@ -34,8 +34,8 @@ const Navbar = () => {
         to="/meals"
         className={({ isActive }) =>
           isActive
-            ? "px-4 py-2 text-sm rounded-full bg-white text-transparent bg-clip-text bg-gradient-primary font-semibold shadow-soft transition-all duration-300"
-            : "px-4 py-2 text-sm rounded-full text-white hover:bg-white/20 transition-all duration-300 backdrop-blur-sm"
+            ? "px-4 py-2 text-sm rounded-full bg-orange-500/15 text-orange-400 font-semibold border border-orange-500/30 transition-all duration-200"
+            : "px-4 py-2 text-sm rounded-full text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all duration-200"
         }
       >
         Meals
@@ -44,8 +44,8 @@ const Navbar = () => {
         to="/upcoming-meals"
         className={({ isActive }) =>
           isActive
-            ? "px-4 py-2 text-sm rounded-full bg-white text-transparent bg-clip-text bg-gradient-primary font-semibold shadow-soft transition-all duration-300"
-            : "px-4 py-2 text-sm rounded-full text-white hover:bg-white/20 transition-all duration-300 backdrop-blur-sm"
+            ? "px-4 py-2 text-sm rounded-full bg-orange-500/15 text-orange-400 font-semibold border border-orange-500/30 transition-all duration-200"
+            : "px-4 py-2 text-sm rounded-full text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all duration-200"
         }
       >
         Upcoming Meals
@@ -54,15 +54,15 @@ const Navbar = () => {
   );
 
   return (
-    <div className="fixed top-0 left-0 w-full z-50 glass-effect border-b border-white/20">
-      <div className="py-4">
+    <div className="fixed top-0 left-0 w-full z-50 bg-slate-950/85 backdrop-blur-md border-b border-slate-800/80">
+      <div className="py-3">
         <div className="navbar md:w-4/5 mx-auto w-full px-4">
           <div className="navbar-start">
             <div className="dropdown">
               <div
                 tabIndex={0}
                 role="button"
-                className="btn btn-ghost lg:hidden text-white hover:bg-white/20"
+                className="btn btn-ghost lg:hidden text-slate-300 hover:text-white hover:bg-slate-800/60"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -81,24 +81,24 @@ const Navbar = () => {
               </div>
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content glass-effect rounded-2xl z-[1] mt-3 w-60 p-4 shadow-strong gap-3"
+                className="menu menu-sm dropdown-content bg-slate-900 border border-slate-800 rounded-2xl z-[1] mt-3 w-60 p-4 shadow-2xl gap-2"
               >
                 {links}
               </ul>
             </div>
             <Link
               to="/"
-              className="flex gap-2 items-center text-xl md:text-2xl font-bold text-white hover:scale-105 transition-transform duration-300"
+              className="flex gap-2.5 items-center text-xl md:text-2xl font-bold text-white hover:opacity-90 transition-opacity"
             >
-              <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-white p-2 shadow-medium">
+              <div className="w-10 h-10 md:w-11 md:h-11 rounded-xl bg-slate-900 border border-slate-700/80 p-1.5 shadow-md flex items-center justify-center">
                 <img
                   src={LogoImg}
                   alt="UniEats Logo"
                   className="w-full h-full object-contain"
                 />
               </div>
-              <span className="bg-white text-transparent bg-clip-text bg-gradient-primary hidden sm:inline">
-                UniEats
+              <span className="font-bold text-white tracking-tight hidden sm:inline">
+                Uni<span className="text-orange-500">Eats</span>
               </span>
             </Link>
           </div>
@@ -109,9 +109,9 @@ const Navbar = () => {
           </div>
           <div className="flex gap-3 items-center navbar-end">
             <div className="relative">
-              <button className="btn btn-circle btn-ghost text-white hover:bg-white/20 transition-all duration-300">
-                <FaBell className="text-xl" />
-                <span className="absolute top-2 right-2 w-2 h-2 bg-gradient-secondary rounded-full animate-pulse"></span>
+              <button className="btn btn-circle btn-ghost text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all duration-200">
+                <FaBell className="text-lg" />
+                <span className="absolute top-2.5 right-2.5 w-2 h-2 bg-orange-500 rounded-full animate-pulse"></span>
               </button>
             </div>
             <div>
@@ -120,39 +120,42 @@ const Navbar = () => {
                   <div
                     tabIndex={0}
                     role="button"
-                    className="flex items-center gap-2 cursor-pointer hover:scale-105 transition-transform duration-300"
+                    className="flex items-center gap-2 cursor-pointer hover:scale-105 transition-transform duration-200"
                   >
                     <div className="relative">
                       <img
                         src={user?.photoURL}
-                        className="rounded-full w-10 h-10 md:w-12 md:h-12 border-3 border-white shadow-medium object-cover"
+                        className="rounded-full w-10 h-10 md:w-11 md:h-11 border-2 border-orange-500/80 shadow-md object-cover"
                         alt="User Avatar"
                       />
-                      <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-white"></div>
+                      <div className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-emerald-500 rounded-full border-2 border-slate-950"></div>
                     </div>
                   </div>
                   <ul
                     tabIndex={0}
-                    className="dropdown-content menu glass-effect rounded-2xl z-[1] w-64 p-4 shadow-strong mt-3 space-y-2"
+                    className="dropdown-content menu bg-slate-900 border border-slate-800 rounded-2xl z-[1] w-64 p-4 shadow-2xl mt-3 space-y-2"
                   >
-                    <li className="px-4 py-2">
+                    <li className="px-3 py-2">
                       <span className="font-semibold text-white text-sm">
                         {user?.displayName}
                       </span>
+                      <span className="text-xs text-slate-400 truncate">
+                        {user?.email}
+                      </span>
                     </li>
-                    <div className="divider my-0"></div>
+                    <div className="divider my-0 border-slate-800"></div>
                     <li>
                       <Link
                         to="/dashboard"
-                        className="btn btn-sm btn-gradient-primary rounded-full text-white font-medium"
+                        className="btn btn-sm btn-gradient-primary rounded-xl text-white font-medium w-full mt-1"
                       >
                         Dashboard
                       </Link>
                     </li>
-                    <li className="mt-2">
+                    <li className="mt-1">
                       <button
                         onClick={handleLogout}
-                        className="btn btn-sm btn-gradient-secondary rounded-full text-white font-medium"
+                        className="btn btn-sm bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-xl text-slate-200 font-medium w-full"
                       >
                         Logout
                       </button>
@@ -162,7 +165,7 @@ const Navbar = () => {
               ) : (
                 <Link
                   to="login"
-                  className="btn btn-gradient-primary rounded-full px-6 text-white font-medium shadow-medium hover:shadow-glow-purple transition-all duration-300"
+                  className="btn btn-gradient-primary rounded-full px-6 btn-sm md:btn-md text-white font-semibold shadow-md"
                 >
                   Join Us
                 </Link>

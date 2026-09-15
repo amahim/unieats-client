@@ -142,40 +142,39 @@ const MealsDetails = () => {
       <div className="mb-6">
         <button
           onClick={() => navigate("/meals")}
-          className="flex items-center gap-2 text-white hover:text-white/80 text-lg md:text-xl px-6 py-3 rounded-full glass-effect border border-white/30 hover:border-white/50 transition-all duration-300"
+          className="inline-flex items-center gap-2 text-slate-300 hover:text-white px-5 py-2.5 rounded-full bg-slate-900 border border-slate-800 hover:border-slate-700 transition-all text-sm font-semibold shadow-md"
         >
           <FaArrowCircleLeft />
-          <span className="text-sm md:text-base">Back to Meals</span>
+          <span>Back to Meals</span>
         </button>
       </div>
 
-      <div className="flex md:flex-row flex-col gap-6 md:gap-8 items-start mt-8">
+      <div className="flex md:flex-row flex-col gap-6 md:gap-8 items-start mt-6">
         <div className="flex flex-col gap-4 md:w-1/2 w-full">
-          <div className="relative overflow-hidden rounded-3xl border border-white/20 shadow-strong group">
+          <div className="relative overflow-hidden rounded-2xl border border-slate-800 shadow-xl bg-slate-950 aspect-[4/3]">
             <img
               src={image}
-              className="w-full h-auto object-cover"
+              className="w-full h-full object-cover"
               alt={title}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </div>
           {schedule === "Upcoming" ? (
             <button
               disabled
-              className="btn rounded-full text-white opacity-60 cursor-not-allowed bg-white/20 border border-white/30"
+              className="btn rounded-xl text-slate-400 bg-slate-800/60 border border-slate-700/60 cursor-not-allowed w-full py-3"
             >
               Coming Soon
             </button>
           ) : isAdmin ? (
             <button
               disabled
-              className="btn rounded-full text-white opacity-60 cursor-not-allowed bg-white/20 border border-white/30"
+              className="btn rounded-xl text-slate-400 bg-slate-800/60 border border-slate-700/60 cursor-not-allowed w-full py-3"
             >
-              Admin Can't Request
+              Admin Cannot Request
             </button>
           ) : (
             <button
-              className="btn btn-gradient-primary rounded-full text-white font-semibold shadow-medium hover:shadow-glow-purple transition-all duration-300"
+              className="btn btn-gradient-primary rounded-xl text-white font-bold py-3 shadow-lg shadow-orange-500/20 w-full"
               onClick={() =>
                 user && user.email
                   ? loggedInUserDetails.membership !== "Bronze"
@@ -189,54 +188,54 @@ const MealsDetails = () => {
           )}
         </div>
         {/* Meal Data */}
-        <div className="w-full md:w-1/2 glass-effect p-5 md:p-6 rounded-3xl border border-white/20 flex flex-col gap-3 shadow-strong">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
+        <div className="w-full md:w-1/2 bg-slate-900/90 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-xl flex flex-col gap-4">
+          <h2 className="text-2xl md:text-3xl font-extrabold text-white">
             {title}
           </h2>
-          <div className="space-y-2 text-white/90 text-sm md:text-base">
+          <div className="space-y-2.5 text-slate-300 text-sm md:text-base">
             <div className="flex items-center gap-2">
-              <span className="text-white/60">Category:</span>
-              <span className="font-semibold bg-gradient-tertiary text-transparent bg-clip-text">
+              <span className="text-slate-400">Category:</span>
+              <span className="font-semibold text-orange-400 bg-orange-500/10 px-2.5 py-0.5 rounded-md border border-orange-500/20 text-xs md:text-sm">
                 {category}
               </span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-white/60">Status:</span>
-              <span className="font-semibold">{schedule}</span>
+              <span className="text-slate-400">Status:</span>
+              <span className="font-semibold text-slate-200">{schedule}</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-white/60">Price:</span>
-              <span className="font-bold text-xl md:text-2xl bg-gradient-secondary text-transparent bg-clip-text">
+              <span className="text-slate-400">Price:</span>
+              <span className="font-black text-2xl text-emerald-400">
                 ${price}
               </span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-white/60">Posted:</span>
-              <span className="font-medium">
+              <span className="text-slate-400">Posted:</span>
+              <span className="font-medium text-slate-300">
                 {new Date(post_time).toISOString().split("T")[0]}
               </span>
             </div>
-            <div className="pt-2 border-t border-white/20">
-              <p className="text-white/60 mb-1">Ingredients:</p>
-              <p className="font-medium">{ingredients}</p>
+            <div className="pt-3 border-t border-slate-800">
+              <p className="text-slate-400 text-xs font-semibold uppercase tracking-wider mb-1">Ingredients:</p>
+              <p className="font-medium text-slate-200">{ingredients}</p>
             </div>
-            <div className="pt-2 border-t border-white/20">
-              <p className="text-white/60 mb-1">Description:</p>
-              <p className="font-medium leading-relaxed">{description}</p>
+            <div className="pt-3 border-t border-slate-800">
+              <p className="text-slate-400 text-xs font-semibold uppercase tracking-wider mb-1">Description:</p>
+              <p className="text-slate-300 leading-relaxed text-sm">{description}</p>
             </div>
-            <div className="pt-2 border-t border-white/20">
-              <p className="text-white/60 mb-1">Distributor:</p>
-              <p className="font-semibold">{distributor_name}</p>
-              <p className="text-sm text-white/70">{distributor_email}</p>
+            <div className="pt-3 border-t border-slate-800">
+              <p className="text-slate-400 text-xs font-semibold uppercase tracking-wider mb-1">Distributor:</p>
+              <p className="font-semibold text-white">{distributor_name}</p>
+              <p className="text-xs text-slate-400">{distributor_email}</p>
             </div>
           </div>
-          <div className="flex gap-3 pt-4 border-t border-white/20">
-            <div className="flex items-center gap-2 glass-effect px-4 py-2 rounded-full border border-white/30">
-              <FaStar className="text-yellow-400" />
-              <span className="font-semibold text-white">{rating}</span>
+          <div className="flex flex-wrap gap-3 pt-4 border-t border-slate-800">
+            <div className="flex items-center gap-2 bg-slate-950 px-4 py-2 rounded-full border border-slate-800">
+              <FaStar className="text-amber-400 text-sm" />
+              <span className="font-bold text-white text-sm">{rating}</span>
             </div>
             <button
-              className="flex items-center gap-2 glass-effect px-4 py-2 rounded-full border border-white/30 hover:bg-white/20 transition-all duration-300"
+              className="flex items-center gap-2 bg-slate-950 px-4 py-2 rounded-full border border-slate-800 hover:border-slate-700 text-slate-200 hover:text-white transition-all"
               onClick={() =>
                 user && user.email
                   ? isAdmin
@@ -249,39 +248,34 @@ const MealsDetails = () => {
                   : navigate("/login")
               }
             >
-              <FaThumbsUp className="text-blue-400" />
-              <span className="font-semibold text-white">{likes}</span>
+              <FaThumbsUp className="text-orange-400 text-sm" />
+              <span className="font-bold text-white text-sm">{likes}</span>
             </button>
-            <div className="flex items-center gap-2 glass-effect px-4 py-2 rounded-full border border-white/30">
-              <FaComment className="text-green-400" />
-              <span className="font-semibold text-white">{reviews_count}</span>
+            <div className="flex items-center gap-2 bg-slate-950 px-4 py-2 rounded-full border border-slate-800">
+              <FaComment className="text-emerald-400 text-sm" />
+              <span className="font-bold text-white text-sm">{reviews_count}</span>
             </div>
           </div>
-          <div className="pt-4 border-t border-white/20 space-y-3">
+          <div className="pt-4 border-t border-slate-800 space-y-3">
             <textarea
-              placeholder="Write a review..."
+              placeholder="Write an honest review about this meal..."
               name="review"
               id="review"
-              className="w-full h-24 p-4 rounded-2xl glass-effect border border-white/30 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 resize-none"
-              ref={reviewRef} // Attach ref to the textarea
+              className="w-full h-24 p-3.5 rounded-xl bg-slate-950 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-orange-500/80 resize-none text-sm"
+              ref={reviewRef}
             ></textarea>
             <button
-              className="btn btn-gradient-secondary rounded-full w-full text-white font-semibold shadow-medium hover:shadow-glow-pink transition-all duration-300"
+              className="btn btn-gradient-secondary rounded-xl w-full text-white font-bold py-2.5 shadow-md transition-all"
               onClick={() => {
                 if (!user || !user.email) {
-                  // If the user is not logged in, navigate to login
                   navigate("/login");
                 } else if (isAdmin) {
-                  // Admins can't post reviews
                   toast.error("Admin can't post reviews!");
                 } else if (schedule === "Upcoming") {
-                  // Users can't review upcoming meals
                   toast.error("You cannot review upcoming meals!");
                 } else if (loggedInUserDetails.membership === "Bronze") {
-                  // Users with Bronze badge can't review meals
                   toast.error("Please upgrade your badge to post reviews!");
                 } else {
-                  // All conditions met, allow posting the review
                   handleReview();
                 }
               }}

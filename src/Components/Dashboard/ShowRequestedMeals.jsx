@@ -31,28 +31,28 @@ const ShowRequestedMeals = ({ meal, refetch }) => {
   };
 
   return (
-    <tr className="hover:bg-white/10 transition-colors duration-200 border-b border-white/10">
+    <tr className="hover:bg-slate-800/40 transition-colors duration-150 border-b border-slate-800">
       {/* Name */}
       <td className="px-4 py-4 text-white font-medium">{title}</td>
       {/* Likes */}
       <td className="px-4 py-4 text-center">
-        <span className="px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 font-medium">
+        <span className="px-2.5 py-0.5 rounded-full bg-slate-800 text-orange-400 border border-slate-700 font-semibold text-xs">
           {likes}
         </span>
       </td>
       {/* Reviews */}
       <td className="px-4 py-4 text-center">
-        <span className="px-3 py-1 rounded-full bg-green-500/20 text-green-300 font-medium">
+        <span className="px-2.5 py-0.5 rounded-full bg-slate-800 text-emerald-400 border border-slate-700 font-semibold text-xs">
           {reviews_count}
         </span>
       </td>
       {/* Request Status */}
       <td className="px-4 py-4 text-center">
         <span
-          className={`px-4 py-2 rounded-full font-semibold ${
+          className={`px-3 py-1 rounded-full text-xs font-semibold ${
             reqStatus === "Requested"
-              ? "bg-yellow-500/20 text-yellow-300"
-              : "bg-green-500/20 text-green-300"
+              ? "bg-amber-500/15 text-amber-400 border border-amber-500/30"
+              : "bg-emerald-500/15 text-emerald-400 border border-emerald-500/30"
           }`}
         >
           {reqStatus}
@@ -61,11 +61,11 @@ const ShowRequestedMeals = ({ meal, refetch }) => {
       {/* Cancel Button */}
       <td className="px-4 py-4 text-center">
         <button
-          className="btn btn-gradient-secondary rounded-full btn-sm text-white disabled:opacity-50 disabled:cursor-not-allowed"
+          className="btn bg-rose-500/15 hover:bg-rose-500/25 text-rose-400 border border-rose-500/30 rounded-xl btn-sm disabled:opacity-40 disabled:cursor-not-allowed"
           onClick={() => handleCancel(_id)}
           disabled={reqStatus === "Delivered"}
         >
-          <MdCancel className="text-lg" />
+          <MdCancel className="text-base" />
         </button>
       </td>
     </tr>

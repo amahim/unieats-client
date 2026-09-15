@@ -34,30 +34,30 @@ const MealCategory = () => {
         <SectionTitle heading="Meals" subHeading="Meals By Category" />
       </div>
       {/* tabs */}
-      <div className="glass-effect rounded-3xl p-6 md:p-8 border border-white/20">
+      <div className="bg-slate-900/80 rounded-3xl p-6 md:p-8 border border-slate-800 shadow-xl">
         <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
           <TabList className="flex flex-wrap justify-center gap-3 mb-8 border-0">
             <Tab
-              className="px-6 py-3 rounded-full cursor-pointer text-white/80 transition-all duration-300 hover:bg-white/20"
-              selectedClassName="bg-white text-transparent bg-clip-text bg-gradient-primary font-semibold shadow-soft"
+              className="px-6 py-2.5 rounded-full cursor-pointer text-slate-300 transition-all duration-200 hover:text-white hover:bg-slate-800 font-medium text-sm md:text-base border border-slate-800/80 outline-none"
+              selectedClassName="!bg-orange-500 !text-white !font-bold !border-orange-400/50 shadow-lg shadow-orange-500/25"
             >
               Breakfast
             </Tab>
             <Tab
-              className="px-6 py-3 rounded-full cursor-pointer text-white/80 transition-all duration-300 hover:bg-white/20"
-              selectedClassName="bg-white text-transparent bg-clip-text bg-gradient-primary font-semibold shadow-soft"
+              className="px-6 py-2.5 rounded-full cursor-pointer text-slate-300 transition-all duration-200 hover:text-white hover:bg-slate-800 font-medium text-sm md:text-base border border-slate-800/80 outline-none"
+              selectedClassName="!bg-orange-500 !text-white !font-bold !border-orange-400/50 shadow-lg shadow-orange-500/25"
             >
               Lunch
             </Tab>
             <Tab
-              className="px-6 py-3 rounded-full cursor-pointer text-white/80 transition-all duration-300 hover:bg-white/20"
-              selectedClassName="bg-white text-transparent bg-clip-text bg-gradient-primary font-semibold shadow-soft"
+              className="px-6 py-2.5 rounded-full cursor-pointer text-slate-300 transition-all duration-200 hover:text-white hover:bg-slate-800 font-medium text-sm md:text-base border border-slate-800/80 outline-none"
+              selectedClassName="!bg-orange-500 !text-white !font-bold !border-orange-400/50 shadow-lg shadow-orange-500/25"
             >
               Dinner
             </Tab>
             <Tab
-              className="px-6 py-3 rounded-full cursor-pointer text-white/80 transition-all duration-300 hover:bg-white/20"
-              selectedClassName="bg-white text-transparent bg-clip-text bg-gradient-primary font-semibold shadow-soft"
+              className="px-6 py-2.5 rounded-full cursor-pointer text-slate-300 transition-all duration-200 hover:text-white hover:bg-slate-800 font-medium text-sm md:text-base border border-slate-800/80 outline-none"
+              selectedClassName="!bg-orange-500 !text-white !font-bold !border-orange-400/50 shadow-lg shadow-orange-500/25"
             >
               All Meals
             </Tab>
@@ -76,12 +76,12 @@ const MealCategory = () => {
           </TabPanel>
         </Tabs>
       </div>
-      <div className="text-center mt-8">
+      <div className="text-center mt-10">
         <Link
           to="/meals"
-          className="btn btn-gradient-primary rounded-full px-8 py-3 font-semibold text-white shadow-medium hover:shadow-glow-purple transition-all duration-300"
+          className="btn btn-gradient-primary rounded-full px-8 py-3 font-semibold text-white shadow-lg"
         >
-          View all
+          View All Meals
         </Link>
       </div>
     </div>

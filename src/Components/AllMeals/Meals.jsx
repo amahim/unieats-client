@@ -34,21 +34,14 @@ const Meals = () => {
       <div>
         <SectionTitle heading="All Meals" subHeading="Available Meals" />
       </div>
-      <div className="flex flex-col md:flex-row items-center gap-4 py-6">
-        <div className="md:w-[60%] lg:w-[70%] w-full">
-          <label className="glass-effect flex items-center gap-3 px-5 py-3 rounded-full border border-white/30">
-            <input
-              type="text"
-              className="grow bg-transparent text-white placeholder-white/60 focus:outline-none"
-              placeholder="Search by meal title"
-              value={searchQuery}
-              onChange={handleSearchChange}
-            />
+      <div className="flex flex-col md:flex-row items-center justify-between gap-4 py-6">
+        <div className="w-full md:w-2/3">
+          <label className="bg-slate-900/90 flex items-center gap-3 px-5 py-3 rounded-2xl md:rounded-full border border-slate-800 shadow-inner focus-within:border-orange-500/80 transition-colors">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 16 16"
               fill="currentColor"
-              className="h-5 w-5 text-white/70"
+              className="h-5 w-5 text-slate-400"
             >
               <path
                 fillRule="evenodd"
@@ -56,25 +49,41 @@ const Meals = () => {
                 clipRule="evenodd"
               />
             </svg>
+            <input
+              type="text"
+              className="grow bg-transparent text-white placeholder-slate-400 text-sm md:text-base focus:outline-none"
+              placeholder="Search meals by title..."
+              value={searchQuery}
+              onChange={handleSearchChange}
+            />
           </label>
         </div>
         {/* Filter buttons */}
-        <div className="flex justify-center items-center gap-3 md:w-[40%] lg:w-[30%] w-full">
+        <div className="flex justify-end items-center gap-2.5 w-full md:w-auto">
+          <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider hidden sm:inline">Sort:</span>
           <button
-            className="btn btn-gradient-tertiary rounded-full px-6 text-white font-medium shadow-medium hover:shadow-glow-blue transition-all duration-300 text-sm md:text-base"
-            onClick={() => handleSort("price")} // Sort by price
+            className={`px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold transition-all ${
+              sortBy === "price"
+                ? "bg-orange-500 text-white shadow-lg shadow-orange-500/25 border border-orange-400/50"
+                : "bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700"
+            }`}
+            onClick={() => handleSort(sortBy === "price" ? "" : "price")}
           >
             Price
           </button>
           <button
-            className="btn btn-gradient-secondary rounded-full px-6 text-white font-medium shadow-medium hover:shadow-glow-pink transition-all duration-300 text-sm md:text-base"
-            onClick={() => handleSort("category")} // Sort by category
+            className={`px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold transition-all ${
+              sortBy === "category"
+                ? "bg-orange-500 text-white shadow-lg shadow-orange-500/25 border border-orange-400/50"
+                : "bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700"
+            }`}
+            onClick={() => handleSort(sortBy === "category" ? "" : "category")}
           >
             Category
           </button>
         </div>
       </div>
-      <div className="grid lg:grid-cols-3 grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-4">
         {AvailableMeals.map((meal) => (
           <ShowMeals meal={meal} key={meal._id} refetch={refetch} />
         ))}

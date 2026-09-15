@@ -91,95 +91,95 @@ const Register = () => {
   return (
     <div className="w-full max-w-md mx-auto px-4 py-8">
       <div className="text-center mb-6">
-        <h1 className="text-2xl md:text-3xl font-bold text-white mb-2">
+        <h1 className="text-2xl md:text-3xl font-extrabold text-white mb-2 tracking-tight">
           Join UniEats
         </h1>
-        <p className="text-white/80 text-sm">Create your account</p>
+        <p className="text-slate-400 text-sm">Create your student account</p>
       </div>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="glass-effect card-body p-8 rounded-3xl border border-white/20 shadow-strong"
+        className="bg-slate-900/95 card-body p-6 md:p-8 rounded-2xl border border-slate-800 shadow-2xl space-y-3"
       >
         {/* Name Field */}
         <div className="form-control">
-          <label className="label">
-            <span className="label-text text-white font-medium">Name</span>
+          <label className="label py-1">
+            <span className="label-text text-slate-300 font-semibold text-xs uppercase tracking-wider">Full Name</span>
           </label>
           <input
             type="text"
-            placeholder="Enter your name"
-            className="input glass-effect border border-white/30 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 rounded-2xl"
+            placeholder="John Doe"
+            className="input bg-slate-950 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-orange-500 rounded-xl text-sm h-11"
             {...register("name", { required: "Name is required" })}
           />
           {errors.name && (
-            <p className="text-red-400 text-sm mt-1">{errors.name.message}</p>
+            <p className="text-rose-400 text-xs mt-1">{errors.name.message}</p>
           )}
         </div>
 
         {/* Photo URL Field */}
         <div className="form-control">
-          <label className="label">
-            <span className="label-text text-white font-medium">
+          <label className="label py-1">
+            <span className="label-text text-slate-300 font-semibold text-xs uppercase tracking-wider">
               Profile Picture
             </span>
           </label>
           <input
             {...register("image", { required: true })}
             type="file"
-            className="file-input glass-effect border border-white/30 text-white rounded-2xl"
+            className="file-input bg-slate-950 border border-slate-800 text-slate-300 rounded-xl text-sm h-11 file:bg-slate-800 file:border-none file:text-slate-200 file:mr-3"
           />
         </div>
 
         {/* Email Field */}
         <div className="form-control">
-          <label className="label">
-            <span className="label-text text-white font-medium">Email</span>
+          <label className="label py-1">
+            <span className="label-text text-slate-300 font-semibold text-xs uppercase tracking-wider">Email</span>
           </label>
           <input
             type="email"
-            placeholder="Enter your email"
-            className="input glass-effect border border-white/30 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 rounded-2xl"
+            placeholder="student@university.edu"
+            className="input bg-slate-950 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-orange-500 rounded-xl text-sm h-11"
             {...register("email", { required: "Email is required" })}
           />
           {errors.email && (
-            <p className="text-red-400 text-sm mt-1">{errors.email.message}</p>
+            <p className="text-rose-400 text-xs mt-1">{errors.email.message}</p>
           )}
         </div>
 
         {/* Password Field */}
         <div className="form-control">
-          <label className="label">
-            <span className="label-text text-white font-medium">Password</span>
+          <label className="label py-1">
+            <span className="label-text text-slate-300 font-semibold text-xs uppercase tracking-wider">Password</span>
           </label>
           <input
             type="password"
-            placeholder="Create a password"
-            className="input glass-effect border border-white/30 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 rounded-2xl"
+            placeholder="Create a strong password"
+            className="input bg-slate-950 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-orange-500 rounded-xl text-sm h-11"
             {...register("password", { required: "Password is required" })}
           />
           {errors.password && (
-            <p className="text-red-400 text-sm mt-1">
+            <p className="text-rose-400 text-xs mt-1">
               {errors.password.message}
             </p>
           )}
         </div>
 
         {/* Submit Button */}
-        <div className="form-control mt-6">
-          <button className="btn btn-gradient-primary rounded-full text-white font-semibold shadow-medium hover:shadow-glow-purple transition-all duration-300">
-            Register
+        <div className="form-control mt-4">
+          <button className="btn btn-gradient-primary rounded-xl text-white font-bold shadow-lg shadow-orange-500/20 py-2.5">
+            Create Account
           </button>
         </div>
 
         {/* Already have an account */}
-        <div className="text-center mt-4">
-          <p className="text-white/80">
+        <div className="text-center mt-3">
+          <p className="text-slate-400 text-xs md:text-sm">
             Already have an account?{" "}
             <Link
               to="/login"
-              className="text-white font-semibold hover:underline"
+              className="text-orange-400 font-semibold hover:underline"
             >
-              Login
+              Sign In
             </Link>
           </p>
         </div>

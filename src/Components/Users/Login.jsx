@@ -66,37 +66,37 @@ const Login = () => {
   return (
     <div className="w-full max-w-md mx-auto px-4 py-8">
       <div className="text-center mb-6">
-        <h1 className="text-2xl md:text-3xl font-bold text-white mb-2">
+        <h1 className="text-2xl md:text-3xl font-extrabold text-white mb-2 tracking-tight">
           Welcome Back
         </h1>
-        <p className="text-white/80 text-sm">Login to your account</p>
+        <p className="text-slate-400 text-sm">Sign in to your UniEats account</p>
       </div>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="glass-effect card-body p-8 rounded-3xl border border-white/20 shadow-strong"
+        className="bg-slate-900/95 card-body p-6 md:p-8 rounded-2xl border border-slate-800 shadow-2xl space-y-3"
       >
         <div className="form-control">
-          <label className="label">
-            <span className="label-text text-white font-medium">Email</span>
+          <label className="label py-1">
+            <span className="label-text text-slate-300 font-semibold text-xs uppercase tracking-wider">Email</span>
           </label>
           <input
             type="email"
-            placeholder="Enter your email"
-            className="input glass-effect border border-white/30 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 rounded-2xl"
+            placeholder="student@university.edu"
+            className="input bg-slate-950 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-orange-500 rounded-xl text-sm h-11"
             {...register("email", { required: "Email is required" })}
           />
           {errors.email && (
-            <p className="text-red-400 text-sm mt-1">{errors.email.message}</p>
+            <p className="text-rose-400 text-xs mt-1">{errors.email.message}</p>
           )}
         </div>
         <div className="form-control">
-          <label className="label">
-            <span className="label-text text-white font-medium">Password</span>
+          <label className="label py-1">
+            <span className="label-text text-slate-300 font-semibold text-xs uppercase tracking-wider">Password</span>
           </label>
           <input
             type="password"
-            placeholder="Enter your password"
-            className="input glass-effect border border-white/30 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 rounded-2xl"
+            placeholder="••••••••"
+            className="input bg-slate-950 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-orange-500 rounded-xl text-sm h-11"
             {...register("password", {
               required: "Password is required",
               minLength: {
@@ -106,45 +106,45 @@ const Login = () => {
             })}
           />
           {errors.password && (
-            <p className="text-red-400 text-sm mt-1">
+            <p className="text-rose-400 text-xs mt-1">
               {errors.password.message}
             </p>
           )}
-          <label className="label">
-            <p className="label-text-alt link link-hover text-white/70 hover:text-white">
+          <label className="label py-1">
+            <span className="label-text-alt link link-hover text-slate-400 hover:text-orange-400 text-xs">
               Forgot password?
-            </p>
+            </span>
           </label>
         </div>
-        <div className="form-control mt-6">
+        <div className="form-control mt-4">
           <button
             type="submit"
-            className="btn btn-gradient-primary rounded-full text-white font-semibold shadow-medium hover:shadow-glow-purple transition-all duration-300"
+            className="btn btn-gradient-primary rounded-xl text-white font-bold shadow-lg shadow-orange-500/20 py-2.5"
           >
-            Login
+            Sign In
           </button>
         </div>
-        <div className="text-center mt-4">
-          <p className="text-white/80">
+        <div className="text-center mt-3">
+          <p className="text-slate-400 text-xs md:text-sm">
             Don't have an account?{" "}
             <Link
               to="/register"
-              className="text-white font-semibold hover:underline"
+              className="text-orange-400 font-semibold hover:underline"
             >
               Register
             </Link>
           </p>
         </div>
-        <div className="flex w-full flex-col">
-          <div className="divider text-white/60">Or</div>
+        <div className="flex w-full flex-col my-1">
+          <div className="divider text-slate-500 text-xs my-1">OR</div>
         </div>
         <div>
           <button
             type="button"
             onClick={handleGoogleSignIn}
-            className="w-full btn glass-effect border border-white/30 text-white hover:bg-white/20 rounded-full font-medium transition-all duration-300 flex items-center justify-center gap-2"
+            className="w-full btn bg-slate-950 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 text-white rounded-xl font-semibold transition-all flex items-center justify-center gap-2 text-sm h-11"
           >
-            Login With Google <FaGoogle />
+            <FaGoogle className="text-orange-400" /> Continue with Google
           </button>
         </div>
       </form>
